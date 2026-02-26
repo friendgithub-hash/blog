@@ -16,13 +16,14 @@ const Homepage = () => {
         {/* title */}
         <div className="">
           <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
+            Advanced Negative Pressure Ink Supply Systems
           </h1>
           <p className="mt-8 text-md md:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            voluptas veritatis repellendus, ad voluptatibus eius accusantium,
-            ullam quidem qui nobis nisi repellat quos in vero exercitationem
-            quod! Nam, maxime? Repellendus.
+            Negative pressure systems are critical components in UV printing,
+            designed to stabilize ink delivery by creating a vacuum that
+            balances gravitational forces. This technology ensures a stable ink
+            meniscus at the nozzle, preventing dripping and enabling high-speed,
+            continuous production across various orientations.
           </p>
         </div>
       </div>

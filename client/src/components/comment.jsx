@@ -40,9 +40,9 @@ const Comment = ({ comment, postId }) => {
           <Image
             src={comment.user.img}
             className="w-10 h-10 rounded-full object-cover"
-            alt="John Doe"
-            w="40"
-            h="40"
+            alt=""
+            w="28"
+            h="28"
           />
         )}
         <span className="font-medium">{comment.user.username}</span>

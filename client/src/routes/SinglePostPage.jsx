@@ -49,53 +49,13 @@ const SinglePostPage = () => {
           </div>
         )}
       </div>
-      {/* Cotent */}
+      {/* Content */}
       <div className="flex flex-col md:flex-row gap-12">
-        {/* Text */}
-        <div className="lg:text-lg flex flex-col gap-6 text-justify">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
-            dolore reiciendis accusamus facilis rerum, sint laudantium est ut
-            quaerat, ab consequatur pariatur culpa dolorem dolores soluta velit
-            a, similique perspiciatis?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-            voluptate.lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptas, voluptate.loremdkladf ipsum dolor sit amet consectetur
-            adipisicing elit. Voluptas, voluptate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
-            dolore reiciendis accusamus facilis rerum, sint laudantium est ut
-            quaerat, ab consequatur pariatur culpa dolorem dolores soluta velit
-            a, similique perspiciatis?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-            voluptate.lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptas, voluptate.loremdkladf ipsum dolor sit amet consectetur
-            adipisicing elit. Voluptas, voluptate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum
-            dolore reiciendis accusamus facilis rerum, sint laudantium est ut
-            quaerat, ab consequatur pariatur culpa dolorem dolores soluta velit
-            a, similique perspiciatis?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-            voluptate.lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptas, voluptate.loremdkladf ipsum dolor sit amet consectetur
-            adipisicing elit. Voluptas, voluptate.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-            consectetur, fugit eveniet illo excepturi aliquam dicta cum
-            distinctio ducimus, aspernatur alias consequuntur eligendi tenetur!
-            Fuga voluptate minima nemo quibusdam architecto?
-          </p>
-        </div>
+        {/* Text - FIXED: Use data.content instead of dummy Lorem ipsum */}
+        <div
+          className="lg:text-lg flex flex-col gap-6 text-justify"
+          dangerouslySetInnerHTML={{ __html: data.content }}
+        />
         {/* Menu */}
         <div className="px-4 h-max sticky top-8">
           <h1 className="mb-4 text-sm font-medium">Author</h1>
@@ -106,17 +66,15 @@ const SinglePostPage = () => {
                   src={data.user?.img}
                   className="w-12 h-12 rounded-full object-cover"
                   alt={data.user?.username || "Unknown User"}
-                  w="48"
-                  h="48"
+                  w="28"
+                  h="28"
                 />
               )}
               <Link className="text-blue-800">
                 {data.user?.username || "Unknown User"}
               </Link>
             </div>
-            <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur{" "}
-            </p>
+            <p className="text-sm text-gray-500">{data.title}</p>
             <div className="flex gap-2">
               <Link>
                 <Image src="facebook.svg" />
