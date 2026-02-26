@@ -99,19 +99,28 @@ export const createPost = async (req, res) => {
     // Get user info from Clerk session claims
     const userInfo = req.auth.sessionClaims;
 
-    // FIXED: Properly extract email from session claims structure
-    // Clerk stores email in email_addresses array or directly as email
+    // FIXED: Log session claims to see what's available
+    console.log(
+      "[createPost] Clerk session claims:",
+      JSON.stringify(userInfo, null, 2),
+    );
+
+    // FIXED: Extract username from Clerk session - try multiple sources
+    // Clerk JWT has different structure than webhook payload
+    const username =
+      userInfo.username ||
+      userInfo.email?.split("@")[0] ||
+      userInfo.sub?.split("_")[1] ||
+      `user_${clerkUserId.slice(-8)}`;
+
+    const email = userInfo.email || `${clerkUserId}@temp.com`;
+    const img = userInfo.image_url || userInfo.picture || "";
+
     user = new User({
       clerkUserId: clerkUserId,
-      username:
-        userInfo.email_addresses?.[0]?.email_address ||
-        userInfo.email ||
-        `user_${clerkUserId.slice(-8)}`,
-      email:
-        userInfo.email_addresses?.[0]?.email_address ||
-        userInfo.email ||
-        `${clerkUserId}@temp.com`,
-      img: userInfo.image_url || "",
+      username: username,
+      email: email,
+      img: img,
     });
 
     try {

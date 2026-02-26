@@ -29,18 +29,27 @@ export const addComment = async (req, res) => {
     // Get user info from Clerk session claims
     const userInfo = req.auth.sessionClaims;
 
+    // FIXED: Log session claims to see what's available
+    console.log(
+      "[addComment] Clerk session claims:",
+      JSON.stringify(userInfo, null, 2),
+    );
+
+    // FIXED: Extract username from Clerk session - try multiple sources
+    const username =
+      userInfo.username ||
+      userInfo.email?.split("@")[0] ||
+      userInfo.sub?.split("_")[1] ||
+      `user_${clerkUserId.slice(-8)}`;
+
+    const email = userInfo.email || `${clerkUserId}@temp.com`;
+    const img = userInfo.image_url || userInfo.picture || "";
+
     user = new User({
       clerkUserId: clerkUserId,
-      // FIXED: Use proper email extraction from session claims
-      username:
-        userInfo.email_addresses?.[0]?.email_address ||
-        userInfo.email ||
-        `user_${clerkUserId.slice(-8)}`,
-      email:
-        userInfo.email_addresses?.[0]?.email_address ||
-        userInfo.email ||
-        `${clerkUserId}@temp.com`,
-      img: userInfo.image_url || "",
+      username: username,
+      email: email,
+      img: img,
     });
 
     try {
