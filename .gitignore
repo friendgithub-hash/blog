@@ -1,6 +1,9 @@
 # Markdown files
 *.md
 
+# Kiro specs and configuration
+.kiro/
+
 # Environment variables
 .env
 .env.local

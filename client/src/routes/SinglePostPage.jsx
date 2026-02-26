@@ -6,6 +6,7 @@ import Comments from "../components/Comments";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
+import { useUser } from "@clerk/clerk-react";
 
 const fetchPost = async (slug) => {
   // FIXED: Changed VITE_BASE_URL to VITE_API_URL to match the env variable
@@ -15,14 +16,22 @@ const fetchPost = async (slug) => {
 
 const SinglePostPage = () => {
   const { slug } = useParams();
+  const { user } = useUser();
 
   const { isPending, error, data } = useQuery({
     queryKey: ["post", slug],
     queryFn: () => fetchPost(slug),
   });
+
   if (isPending) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
   if (!data) return <p>No post found</p>;
+
+  // Check if user can edit this post
+  const canEdit =
+    user &&
+    (data.user?.clerkUserId === user.id ||
+      user.publicMetadata?.role === "admin");
 
   return (
     <div className="flex flex-col gap-8">
@@ -40,6 +49,22 @@ const SinglePostPage = () => {
             <span>on</span>
             <Link className="text-blue-800">{data.category}</Link>
             <span>{format(data.createdAt)}</span>
+            <div className="flex gap-2">
+              {canEdit && (
+                <Link
+                  to={`/write?edit=${data._id}`}
+                  className="bg-blue-800 text-white px-4 py-2 rounded-xl text-sm"
+                >
+                  Edit Post
+                </Link>
+              )}
+              <Link
+                to="/write"
+                className="bg-green-600 text-white px-4 py-2 rounded-xl text-sm"
+              >
+                New Post
+              </Link>
+            </div>
           </div>
           <p className="text-gray-500 font-medium">{data.desc}</p>
         </div>
@@ -56,6 +81,7 @@ const SinglePostPage = () => {
           className="lg:text-lg flex flex-col gap-6 text-justify"
           dangerouslySetInnerHTML={{ __html: data.content }}
         />
+
         {/* Menu */}
         <div className="px-4 h-max sticky top-8">
           <h1 className="mb-4 text-sm font-medium">Author</h1>

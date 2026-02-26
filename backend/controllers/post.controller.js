@@ -72,8 +72,19 @@ export const getPosts = async (req, res) => {
 export const getPost = async (req, res) => {
   const post = await Post.findOne({ slug: req.params.slug }).populate(
     "user",
-    "username img",
+    "username img clerkUserId",
   );
+  res.status(200).json(post);
+};
+
+export const getPostById = async (req, res) => {
+  const post = await Post.findById(req.params.id).populate(
+    "user",
+    "username img clerkUserId",
+  );
+  if (!post) {
+    return res.status(404).json("Post not found");
+  }
   res.status(200).json(post);
 };
 
@@ -183,6 +194,73 @@ export const deletePost = async (req, res) => {
     return res.status(403).json("You can only delete your own posts");
   }
   res.status(200).json("Post deleted successfully");
+};
+
+export const updatePost = async (req, res) => {
+  const clerkUserId = req.auth.userId;
+  const postId = req.params.id;
+
+  // Authentication check
+  if (!clerkUserId) {
+    return res.status(401).json("Not authenticated");
+  }
+
+  // Validation - required fields
+  const { title, content } = req.body;
+  if (!title) {
+    return res.status(400).json("Title is required");
+  }
+  if (!content) {
+    return res.status(400).json("Content is required");
+  }
+
+  // Validation - title length
+  if (title.length > 200) {
+    return res.status(400).json("Title is too long");
+  }
+
+  // Category validation
+  const validCategories = [
+    "general",
+    "web-design",
+    "databases",
+    "seo",
+    "marketing",
+  ];
+  if (req.body.category && !validCategories.includes(req.body.category)) {
+    return res.status(400).json("Invalid category");
+  }
+
+  // Find existing post
+  const post = await Post.findById(postId);
+  if (!post) {
+    return res.status(404).json("Post not found");
+  }
+
+  // Find user
+  const user = await User.findOne({ clerkUserId });
+  if (!user) {
+    return res.status(404).json("User not found");
+  }
+
+  // Authorization check
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+  const isAuthor = post.user.toString() === user._id.toString();
+  const isAdmin = role === "admin";
+
+  if (!isAuthor && !isAdmin) {
+    return res.status(403).json("You can only edit your own posts");
+  }
+
+  // Update post (excluding slug to preserve it)
+  const { slug, ...updateData } = req.body;
+
+  const updatedPost = await Post.findByIdAndUpdate(postId, updateData, {
+    new: true,
+    runValidators: true,
+  }).populate("user", "username img");
+
+  res.status(200).json(updatedPost);
 };
 
 export const featurePost = async (req, res) => {
