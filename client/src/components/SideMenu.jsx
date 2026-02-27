@@ -75,39 +75,39 @@ const SideMenu = () => {
       <div className="flex flex-col gap-2 text-sm">
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("general")}
+          onClick={() => handleCategoryChange("application")}
         >
           All
         </span>
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("web-design")}
+          onClick={() => handleCategoryChange("application")}
         >
-          Web Design
+          Application
         </span>
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("development")}
+          onClick={() => handleCategoryChange("service")}
         >
-          Development
+          Service
         </span>
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("databases")}
+          onClick={() => handleCategoryChange("products")}
         >
-          Databases
+          Products
         </span>
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("seo")}
+          onClick={() => handleCategoryChange("distributors")}
         >
-          Search Engines
+          Distributors
         </span>
         <span
           className="underline cursor-pointer"
-          onClick={() => handleCategoryChange("marketing")}
+          onClick={() => handleCategoryChange("news")}
         >
-          Marketing
+          News
         </span>
       </div>
     </div>

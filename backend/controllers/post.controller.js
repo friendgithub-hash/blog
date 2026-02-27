@@ -221,11 +221,11 @@ export const updatePost = async (req, res) => {
 
   // Category validation
   const validCategories = [
-    "general",
-    "web-design",
-    "databases",
-    "seo",
-    "marketing",
+    "application",
+    "service",
+    "products",
+    "distributors",
+    "news",
   ];
   if (req.body.category && !validCategories.includes(req.body.category)) {
     return res.status(400).json("Invalid category");
