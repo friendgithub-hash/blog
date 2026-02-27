@@ -4,9 +4,9 @@ This is a MERN stack blog application built with React, Vite, and comprehensive 
 
 ## Tech Stack
 
-- React 18 with Vite for fast development
+- React 19 RC with Vite for fast development
 - React Query for data fetching and caching
-- React Helmet Async for SEO meta tag management
+- React 19 Native Document Metadata for SEO meta tag management
 - Clerk for authentication
 - TailwindCSS for styling
 
@@ -249,4 +249,4 @@ Currently using:
 - [Twitter Cards Documentation](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) - Twitter Card specs
 - [Schema.org](https://schema.org/) - Structured data vocabulary
 - [Google Search Central](https://developers.google.com/search) - SEO best practices
-- [React Helmet Async](https://github.com/staylor/react-helmet-async) - Meta tag management
+- [React 19 Document Metadata](https://react.dev/blog/2024/04/25/react-19) - Native meta tag management

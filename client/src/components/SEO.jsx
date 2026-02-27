@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { useMemo, memo } from "react";
 
 const SEO = memo(
@@ -99,8 +98,8 @@ const SEO = memo(
     const pageTitle = title ? `${title} | ${siteName}` : siteName;
 
     return (
-      <Helmet>
-        {/* Basic Meta Tags */}
+      <>
+        {/* React 19 Native Document Metadata */}
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
         {keywords.length > 0 && (
@@ -147,7 +146,7 @@ const SEO = memo(
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
-      </Helmet>
+      </>
     );
   },
 );
