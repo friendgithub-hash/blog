@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "trending": "Tendencias",
+    "mostPopular": "Más Popular",
+    "contact": "Contacto",
+    "login": "Iniciar Sesión"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "contact": "Contacto"
+  },
+  "post": {
+    "readMore": "Leer Más",
+    "author": "Por {{author}}",
+    "publishedOn": "Publicado el {{date}}",
+    "comments": "{{count}} comentario",
+    "comments_plural": "{{count}} comentarios",
+    "share": "Compartir",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "writtenBy": "Escrito por",
+    "on": "el",
+    "newPost": "Nueva Publicación",
+    "editPost": "Editar Publicación",
+    "authorTitle": "Autor"
+  },
+  "search": {
+    "placeholder": "Buscar publicaciones...",
+    "noResults": "No se encontraron publicaciones",
+    "resultsCount": "{{count}} resultado encontrado",
+    "resultsCount_plural": "{{count}} resultados encontrados",
+    "title": "Buscar"
+  },
+  "filter": {
+    "title": "Filtrar",
+    "newest": "Más Recientes",
+    "oldest": "Más Antiguos",
+    "popular": "Más Populares",
+    "trending": "Tendencias"
+  },
+  "categories": {
+    "title": "Categorías",
+    "all": "Todas",
+    "application": "Aplicación",
+    "service": "Servicio",
+    "products": "Productos",
+    "distributors": "Distribuidores",
+    "news": "Noticias"
+  },
+  "postList": {
+    "allPosts": "Todas las Publicaciones",
+    "categoryPosts": "Publicaciones de {{category}}",
+    "searchResults": "Resultados de Búsqueda para \"{{query}}\"",
+    "latestPosts": "Últimas Publicaciones",
+    "oldestPosts": "Publicaciones Más Antiguas",
+    "popularPosts": "Publicaciones Populares",
+    "browseAll": "Explorar todos los artículos en nextblog",
+    "browseCategory": "Explorar artículos de {{category}} en nextblog",
+    "searchDescription": "Resultados de búsqueda para \"{{query}}\" en nextblog",
+    "filterOrSearch": "Filtrar o Buscar",
+    "close": "cerrar",
+    "pageTitle": "Sistemas Negativos Positivos"
+  },
+  "pagination": {
+    "loading": "Cargando...",
+    "loadingMore": "Cargando más publicaciones...",
+    "allLoaded": "¡Todas las publicaciones cargadas!"
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "submit": "Enviar",
+    "required": "Este campo es obligatorio",
+    "invalidEmail": "Por favor ingrese un correo electrónico válido",
+    "namePlaceholder": "Su nombre completo",
+    "emailPlaceholder": "su.correo@ejemplo.com",
+    "subjectPlaceholder": "¿De qué se trata?",
+    "messagePlaceholder": "Su mensaje (10-1000 caracteres)",
+    "nameRequired": "El nombre es obligatorio",
+    "nameMinLength": "El nombre debe tener al menos 2 caracteres",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Por favor ingrese un correo electrónico válido",
+    "subjectRequired": "El asunto es obligatorio",
+    "subjectMinLength": "El asunto debe tener al menos 3 caracteres",
+    "messageRequired": "El mensaje es obligatorio",
+    "messageMinLength": "El mensaje debe tener al menos 10 caracteres",
+    "messageMaxLength": "El mensaje no debe exceder los 1000 caracteres",
+    "charactersCount": "{{count}}/1000 caracteres",
+    "sending": "Enviando...",
+    "sendMessage": "Enviar Mensaje",
+    "successMessage": "¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.",
+    "errorMessage": "Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.",
+    "correctErrors": "Por favor corrija los errores a continuación",
+    "contactUs": "Contáctanos"
+  },
+  "footer": {
+    "copyright": "© {{year}} NextBlog. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "homepage": {
+    "title": "Sistemas Avanzados de Suministro de Tinta con Presión Negativa",
+    "subtitle": "Los sistemas de presión negativa son componentes críticos en la impresión UV, diseñados para estabilizar el suministro de tinta mediante la creación de un vacío que equilibra las fuerzas gravitacionales. Esta tecnología garantiza un menisco de tinta estable en la boquilla, evitando goteos y permitiendo una producción continua de alta velocidad en diversas orientaciones.",
+    "recentPosts": "Publicaciones Recientes"
+  },
+  "seo": {
+    "homepage": {
+      "title": "Sistemas Avanzados de Suministro de Tinta con Presión Negativa",
+      "description": "Los sistemas de presión negativa son componentes críticos en la impresión UV, diseñados para estabilizar el suministro de tinta mediante la creación de un vacío que equilibra las fuerzas gravitacionales. Esta tecnología garantiza un menisco de tinta estable en la boquilla, evitando goteos y permitiendo una producción continua de alta velocidad en diversas orientaciones."
+    },
+    "posts": {
+      "title": "Todas las Publicaciones",
+      "description": "Explorar todas las publicaciones del blog"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "description": "Ponte en contacto con nosotros"
+    }
+  },
+  "time": {
+    "justNow": "justo ahora",
+    "minutesAgo": "hace {{count}} minuto",
+    "minutesAgo_plural": "hace {{count}} minutos",
+    "hoursAgo": "hace {{count}} hora",
+    "hoursAgo_plural": "hace {{count}} horas",
+    "daysAgo": "hace {{count}} día",
+    "daysAgo_plural": "hace {{count}} días"
+  },
+  "errors": {
+    "loadFailed": "Error al cargar el contenido",
+    "networkError": "Error de red. Por favor, inténtelo de nuevo.",
+    "notFound": "Página no encontrada"
+  },
+  "write": {
+    "createPost": "Crear una nueva publicación",
+    "editPost": "Editar Publicación",
+    "addCoverImage": "Agregar una imagen de portada",
+    "titlePlaceholder": "Título",
+    "chooseCategory": "Elegir una categoría",
+    "descriptionPlaceholder": "Una breve descripción",
+    "publish": "Publicar",
+    "update": "Actualizar",
+    "loading": "Cargando...",
+    "loadingState": "Cargando...",
+    "pleaseSignIn": "Por favor inicie sesión",
+    "loadingPostData": "Cargando datos de la publicación...",
+    "failedToLoadPost": "Error al cargar los datos de la publicación",
+    "progress": "Progreso: {{progress}}% cargado",
+    "createPostSuccess": "¡Publicación creada exitosamente!",
+    "updatePostSuccess": "¡Publicación actualizada exitosamente!",
+    "createPostError": "No se pudo crear la publicación: {{message}}",
+    "updatePostError": "Error al actualizar la publicación: {{message}}",
+    "translations": "Traducciones",
+    "originalContent": "Original (Inglés)",
+    "addTranslation": "Agregar Traducción",
+    "saveTranslation": "Guardar Traducción",
+    "translationSaved": "¡Traducción guardada exitosamente!",
+    "translationError": "Error al guardar la traducción: {{message}}",
+    "translationTitle": "Título ({{language}})",
+    "translationDesc": "Descripción ({{language}})",
+    "translationContent": "Contenido ({{language}})",
+    "coverImageNote": "Se utilizará la imagen de portada de la publicación original",
+    "currentCoverImage": "Imagen de Portada Actual"
+  },
+  "seoWrite": {
+    "createTitle": "Crear Publicación",
+    "createDescription": "Crear una nueva publicación de blog",
+    "editTitle": "Editar Publicación",
+    "editDescription": "Editar tu publicación de blog"
+  }
+}

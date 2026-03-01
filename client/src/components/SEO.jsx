@@ -1,4 +1,5 @@
-import { useMemo, memo } from "react";
+import { useMemo, memo, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const SEO = memo(
   ({
@@ -13,12 +14,30 @@ const SEO = memo(
     category,
     keywords = [],
     noIndex = false,
+    titleKey,
+    descriptionKey,
+    keywordsKey,
   }) => {
+    const { t, i18n } = useTranslation();
+
+    // Update HTML lang attribute when language changes
+    useEffect(() => {
+      document.documentElement.lang = i18n.language;
+    }, [i18n.language]);
     const siteUrl = import.meta.env.VITE_SITE_URL || "http://localhost:5173";
     const siteName = import.meta.env.VITE_SITE_NAME || "Blog";
     const defaultImage = `${siteUrl}/og-default.svg`;
-    const defaultDescription =
-      "Welcome to our blog. Discover articles about various topics.";
+
+    // Use translation keys if provided, otherwise fall back to direct text props
+    const finalTitle = titleKey ? t(titleKey) : title;
+    const finalDescription = descriptionKey
+      ? t(descriptionKey)
+      : description || "";
+    const finalKeywords = keywordsKey
+      ? t(keywordsKey)
+          .split(",")
+          .map((k) => k.trim())
+      : keywords;
 
     // Ensure absolute URLs
     const absoluteImage = image
@@ -34,7 +53,6 @@ const SEO = memo(
       : siteUrl;
 
     // Truncate description to 160 characters
-    const finalDescription = description || defaultDescription;
     const metaDescription =
       finalDescription.length > 160
         ? finalDescription.substring(0, 157) + "..."
@@ -46,7 +64,7 @@ const SEO = memo(
         const articleData = {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          headline: title,
+          headline: finalTitle,
           description: metaDescription,
           image: absoluteImage,
           datePublished: publishedTime,
@@ -83,7 +101,7 @@ const SEO = memo(
       };
     }, [
       type,
-      title,
+      finalTitle,
       metaDescription,
       absoluteImage,
       publishedTime,
@@ -95,15 +113,15 @@ const SEO = memo(
       siteUrl,
     ]);
 
-    const pageTitle = title ? `${title} | ${siteName}` : siteName;
+    const pageTitle = finalTitle ? `${finalTitle} | ${siteName}` : siteName;
 
     return (
       <>
         {/* React 19 Native Document Metadata */}
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        {keywords.length > 0 && (
-          <meta name="keywords" content={keywords.join(", ")} />
+        {finalKeywords.length > 0 && (
+          <meta name="keywords" content={finalKeywords.join(", ")} />
         )}
         <meta
           name="robots"
@@ -117,7 +135,7 @@ const SEO = memo(
 
         {/* Open Graph */}
         <meta property="og:type" content={type} />
-        <meta property="og:title" content={title || siteName} />
+        <meta property="og:title" content={finalTitle || siteName} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={absoluteImage} />
         <meta property="og:url" content={absoluteUrl} />
@@ -137,7 +155,7 @@ const SEO = memo(
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title || siteName} />
+        <meta name="twitter:title" content={finalTitle || siteName} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:image" content={absoluteImage} />
         {author && <meta name="twitter:creator" content={`@${author}`} />}

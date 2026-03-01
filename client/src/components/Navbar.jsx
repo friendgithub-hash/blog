@@ -3,9 +3,12 @@ import Image from "./Image";
 import { Link } from "react-router-dom";
 import { SignedIn, SignedOut, useAuth, UserButton } from "@clerk/clerk-react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation();
 
   const { getToken } = useAuth();
 
@@ -56,34 +59,36 @@ const Navbar = () => {
           }`}
         >
           <Link to="/" onClick={() => setOpen(false)}>
-            Home
+            {t("nav.home")}
           </Link>
           <Link to="/posts?sort=trending" onClick={() => setOpen(false)}>
-            Trending
+            {t("nav.trending")}
           </Link>
           <Link to="/posts?sort=popular" onClick={() => setOpen(false)}>
-            Most Popular
+            {t("nav.mostPopular")}
           </Link>
           <Link to="/contact" onClick={() => setOpen(false)}>
-            Contact
+            {t("nav.contact")}
           </Link>
+          <LanguageSwitcher />
           <Link to="/login" onClick={() => setOpen(false)}>
             <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-              Login
+              {t("nav.login")}
             </button>
           </Link>
         </div>
       </div>
       {/* DESKTOP MENU */}
       <div className="hidden md:flex items-center gap-8 xl:gap-12 font-medium">
-        <Link to="/">Home</Link>
-        <Link to="/posts?sort=trending">Trending</Link>
-        <Link to="/posts?sort=popular">Most Popular</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/">{t("nav.home")}</Link>
+        <Link to="/posts?sort=trending">{t("nav.trending")}</Link>
+        <Link to="/posts?sort=popular">{t("nav.mostPopular")}</Link>
+        <Link to="/contact">{t("nav.contact")}</Link>
+        <LanguageSwitcher />
         <SignedOut>
           <Link to="/login">
             <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-              Login
+              {t("nav.login")}
             </button>
           </Link>
         </SignedOut>

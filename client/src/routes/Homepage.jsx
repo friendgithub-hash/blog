@@ -1,22 +1,25 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import MainCategories from "../components/MainCategories";
 import FeaturedPosts from "../components/FeaturedPosts";
 import PostList from "../components/PostList";
 import SEO from "../components/SEO";
 
 const Homepage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <SEO
-        title="Home"
-        description="Welcome to nextblog. Discover articles about Application, Service, Products, Distributors, and News."
+        titleKey="seo.homepage.title"
+        descriptionKey="seo.homepage.description"
         url="/"
         type="website"
       />
       <div className="mt-4 flex flex-col gap-4">
         {/* Breadcrumbs */}
         <div className="flex gap-4">
-          <Link to="/">Home</Link>
+          <Link to="/">{t("breadcrumb.home")}</Link>
           <span>·</span>
         </div>
         {/* Introduction */}
@@ -24,15 +27,9 @@ const Homepage = () => {
           {/* title */}
           <div className="">
             <h1 className="text-gray-800 text-2xl md:text-5xl lg:text-6xl font-bold">
-              Advanced Negative Pressure Ink Supply Systems
+              {t("homepage.title")}
             </h1>
-            <p className="mt-8 text-md md:text-xl">
-              Negative pressure systems are critical components in UV printing,
-              designed to stabilize ink delivery by creating a vacuum that
-              balances gravitational forces. This technology ensures a stable
-              ink meniscus at the nozzle, preventing dripping and enabling
-              high-speed, continuous production across various orientations.
-            </p>
+            <p className="mt-8 text-md md:text-xl">{t("homepage.subtitle")}</p>
           </div>
         </div>
         {/* Categories*/}
@@ -41,7 +38,9 @@ const Homepage = () => {
         <FeaturedPosts />
         {/* Post list */}
         <div className="">
-          <h1 className="my-8 text-2xl text-gray-600">Recent Posts</h1>
+          <h1 className="my-8 text-2xl text-gray-600">
+            {t("homepage.recentPosts")}
+          </h1>
           <PostList />
         </div>
       </div>

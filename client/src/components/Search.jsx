@@ -1,6 +1,8 @@
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Search = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +33,7 @@ const Search = () => {
       </svg>
       <input
         type="text"
-        placeholder="search ..."
+        placeholder={t("search.placeholder")}
         className="bg-transparent"
         onKeyDown={handleKeyPress}
       />

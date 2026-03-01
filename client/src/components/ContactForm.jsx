@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 const ContactForm = () => {
   const { user, isLoaded } = useUser();
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -38,30 +40,25 @@ const ContactForm = () => {
   const validateField = (field, value) => {
     switch (field) {
       case "name":
-        if (!value.trim()) return "Name is required";
-        if (value.trim().length < 2)
-          return "Name must be at least 2 characters";
+        if (!value.trim()) return t("form.nameRequired");
+        if (value.trim().length < 2) return t("form.nameMinLength");
         return null;
 
       case "email":
-        if (!value.trim()) return "Email is required";
+        if (!value.trim()) return t("form.emailRequired");
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value))
-          return "Please enter a valid email address";
+        if (!emailRegex.test(value)) return t("form.emailInvalid");
         return null;
 
       case "subject":
-        if (!value.trim()) return "Subject is required";
-        if (value.trim().length < 3)
-          return "Subject must be at least 3 characters";
+        if (!value.trim()) return t("form.subjectRequired");
+        if (value.trim().length < 3) return t("form.subjectMinLength");
         return null;
 
       case "message":
-        if (!value.trim()) return "Message is required";
-        if (value.trim().length < 10)
-          return "Message must be at least 10 characters";
-        if (value.trim().length > 1000)
-          return "Message must not exceed 1000 characters";
+        if (!value.trim()) return t("form.messageRequired");
+        if (value.trim().length < 10) return t("form.messageMinLength");
+        if (value.trim().length > 1000) return t("form.messageMaxLength");
         return null;
 
       default:
@@ -115,10 +112,7 @@ const ContactForm = () => {
 
       if (response.data.success) {
         setSubmitStatus("success");
-        setSubmitMessage(
-          response.data.message ||
-            "Thank you for contacting us! We'll get back to you soon.",
-        );
+        setSubmitMessage(response.data.message || t("form.successMessage"));
         // Clear form
         setFormData({
           name: user?.fullName || user?.username || "",
@@ -134,9 +128,9 @@ const ContactForm = () => {
       } else if (error.response?.data?.errors) {
         // Handle validation errors from backend
         setErrors(error.response.data.errors);
-        setSubmitMessage("Please correct the errors below");
+        setSubmitMessage(t("form.correctErrors"));
       } else {
-        setSubmitMessage("Failed to send message. Please try again later.");
+        setSubmitMessage(t("form.errorMessage"));
       }
     } finally {
       setIsSubmitting(false);
@@ -145,7 +139,7 @@ const ContactForm = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Contact Us</h2>
+      <h2 className="text-2xl font-bold mb-6">{t("form.contactUs")}</h2>
 
       {submitStatus === "success" && (
         <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-md">
@@ -166,14 +160,14 @@ const ContactForm = () => {
             htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Name <span className="text-red-500">*</span>
+            {t("form.name")} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="name"
             value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
-            placeholder="Your full name"
+            placeholder={t("form.namePlaceholder")}
             className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               errors.name ? "border-red-500" : "border-gray-300"
             }`}
@@ -194,14 +188,14 @@ const ContactForm = () => {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Email <span className="text-red-500">*</span>
+            {t("form.email")} <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
             id="email"
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
-            placeholder="your.email@example.com"
+            placeholder={t("form.emailPlaceholder")}
             className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               errors.email ? "border-red-500" : "border-gray-300"
             }`}
@@ -222,14 +216,14 @@ const ContactForm = () => {
             htmlFor="subject"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Subject <span className="text-red-500">*</span>
+            {t("form.subject")} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="subject"
             value={formData.subject}
             onChange={(e) => handleInputChange("subject", e.target.value)}
-            placeholder="What is this about?"
+            placeholder={t("form.subjectPlaceholder")}
             className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               errors.subject ? "border-red-500" : "border-gray-300"
             }`}
@@ -250,13 +244,13 @@ const ContactForm = () => {
             htmlFor="message"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Message <span className="text-red-500">*</span>
+            {t("form.message")} <span className="text-red-500">*</span>
           </label>
           <textarea
             id="message"
             value={formData.message}
             onChange={(e) => handleInputChange("message", e.target.value)}
-            placeholder="Your message (10-1000 characters)"
+            placeholder={t("form.messagePlaceholder")}
             rows="6"
             className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-vertical ${
               errors.message ? "border-red-500" : "border-gray-300"
@@ -272,7 +266,7 @@ const ContactForm = () => {
               </p>
             ) : (
               <span className="text-sm text-gray-500">
-                {formData.message.length}/1000 characters
+                {t("form.charactersCount", { count: formData.message.length })}
               </span>
             )}
           </div>
@@ -288,7 +282,7 @@ const ContactForm = () => {
               : "bg-blue-600 hover:bg-blue-700 text-white"
           }`}
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? t("form.sending") : t("form.sendMessage")}
         </button>
       </form>
     </div>

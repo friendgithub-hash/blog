@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "home": "Home",
+    "trending": "Trending",
+    "mostPopular": "Most Popular",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "contact": "Contact"
+  },
+  "post": {
+    "readMore": "Read More",
+    "author": "By {{author}}",
+    "publishedOn": "Published on {{date}}",
+    "comments": "{{count}} comment",
+    "comments_plural": "{{count}} comments",
+    "share": "Share",
+    "edit": "Edit",
+    "delete": "Delete",
+    "writtenBy": "Written by",
+    "on": "on",
+    "newPost": "New Post",
+    "editPost": "Edit Post",
+    "authorTitle": "Author"
+  },
+  "search": {
+    "placeholder": "Search posts...",
+    "noResults": "No posts found",
+    "resultsCount": "{{count}} result found",
+    "resultsCount_plural": "{{count}} results found",
+    "title": "Search"
+  },
+  "filter": {
+    "title": "Filter",
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "popular": "Most Popular",
+    "trending": "Trending"
+  },
+  "categories": {
+    "title": "Categories",
+    "all": "All",
+    "application": "Application",
+    "service": "Service",
+    "products": "Products",
+    "distributors": "Distributors",
+    "news": "News"
+  },
+  "postList": {
+    "allPosts": "All Posts",
+    "categoryPosts": "{{category}} Posts",
+    "searchResults": "Search Results for \"{{query}}\"",
+    "latestPosts": "Latest Posts",
+    "oldestPosts": "Oldest Posts",
+    "popularPosts": "Popular Posts",
+    "browseAll": "Browse all articles on nextblog",
+    "browseCategory": "Browse {{category}} articles on nextblog",
+    "searchDescription": "Search results for \"{{query}}\" on nextblog",
+    "filterOrSearch": "Filter or Search",
+    "close": "close",
+    "pageTitle": "Negative Positive Systems"
+  },
+  "pagination": {
+    "loading": "Loading...",
+    "loadingMore": "Loading more posts...",
+    "allLoaded": "All posts loaded!"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit",
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "What is this about?",
+    "messagePlaceholder": "Your message (10-1000 characters)",
+    "nameRequired": "Name is required",
+    "nameMinLength": "Name must be at least 2 characters",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "subjectRequired": "Subject is required",
+    "subjectMinLength": "Subject must be at least 3 characters",
+    "messageRequired": "Message is required",
+    "messageMinLength": "Message must be at least 10 characters",
+    "messageMaxLength": "Message must not exceed 1000 characters",
+    "charactersCount": "{{count}}/1000 characters",
+    "sending": "Sending...",
+    "sendMessage": "Send Message",
+    "successMessage": "Thank you for contacting us! We'll get back to you soon.",
+    "errorMessage": "Failed to send message. Please try again later.",
+    "correctErrors": "Please correct the errors below",
+    "contactUs": "Contact Us"
+  },
+  "footer": {
+    "copyright": "© {{year}} NextBlog. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "homepage": {
+    "title": "Advanced Negative Pressure Ink Supply Systems",
+    "subtitle": "Negative pressure systems are critical components in UV printing, designed to stabilize ink delivery by creating a vacuum that balances gravitational forces. This technology ensures a stable ink meniscus at the nozzle, preventing dripping and enabling high-speed, continuous production across various orientations.",
+    "recentPosts": "Recent Posts"
+  },
+  "seo": {
+    "homepage": {
+      "title": "Advanced Negative Pressure Ink Supply Systems",
+      "description": "Negative pressure systems are critical components in UV printing, designed to stabilize ink delivery by creating a vacuum that balances gravitational forces. This technology ensures a stable ink meniscus at the nozzle, preventing dripping and enabling high-speed, continuous production across various orientations."
+    },
+    "posts": {
+      "title": "All Posts",
+      "description": "Browse all blog posts"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with us"
+    }
+  },
+  "time": {
+    "justNow": "just now",
+    "minutesAgo": "{{count}} minute ago",
+    "minutesAgo_plural": "{{count}} minutes ago",
+    "hoursAgo": "{{count}} hour ago",
+    "hoursAgo_plural": "{{count}} hours ago",
+    "daysAgo": "{{count}} day ago",
+    "daysAgo_plural": "{{count}} days ago"
+  },
+  "errors": {
+    "loadFailed": "Failed to load content",
+    "networkError": "Network error. Please try again.",
+    "notFound": "Page not found"
+  },
+  "write": {
+    "createPost": "Create a new post",
+    "editPost": "Edit Post",
+    "addCoverImage": "Add a cover image",
+    "titlePlaceholder": "Title",
+    "chooseCategory": "Choose a category",
+    "descriptionPlaceholder": "A short description",
+    "publish": "Publish",
+    "update": "Update",
+    "loading": "Loading...",
+    "loadingState": "Loading...",
+    "pleaseSignIn": "Please sign in",
+    "loadingPostData": "Loading post data...",
+    "failedToLoadPost": "Failed to load post data",
+    "progress": "Progress: {{progress}}% uploaded",
+    "createPostSuccess": "Post created successfully!",
+    "updatePostSuccess": "Post updated successfully!",
+    "createPostError": "Could not create post: {{message}}",
+    "updatePostError": "Failed to update post: {{message}}",
+    "translations": "Translations",
+    "originalContent": "Original (English)",
+    "addTranslation": "Add Translation",
+    "saveTranslation": "Save Translation",
+    "translationSaved": "Translation saved successfully!",
+    "translationError": "Failed to save translation: {{message}}",
+    "translationTitle": "Title ({{language}})",
+    "translationDesc": "Description ({{language}})",
+    "translationContent": "Content ({{language}})",
+    "coverImageNote": "Cover image from original post will be used",
+    "currentCoverImage": "Current Cover Image"
+  },
+  "seoWrite": {
+    "createTitle": "Create Post",
+    "createDescription": "Create a new blog post",
+    "editTitle": "Edit Post",
+    "editDescription": "Edit your blog post"
+  }
+}

@@ -63,10 +63,20 @@ export const getPosts = async (req, res) => {
     .limit(limit)
     .skip((page - 1) * limit);
 
+  // Convert translations Map to plain object for each post
+  const postsWithTranslations = posts.map((post) => {
+    const postObj = post.toObject();
+    if (postObj.translations) {
+      // Convert Map to plain object
+      postObj.translations = Object.fromEntries(postObj.translations);
+    }
+    return postObj;
+  });
+
   const totalPosts = await Post.countDocuments();
   const hasMore = page * limit < totalPosts;
 
-  res.status(200).json({ posts, hasMore });
+  res.status(200).json({ posts: postsWithTranslations, hasMore });
 };
 
 export const getPost = async (req, res) => {
@@ -74,7 +84,14 @@ export const getPost = async (req, res) => {
     "user",
     "username img clerkUserId",
   );
-  res.status(200).json(post);
+
+  // Convert translations Map to plain object
+  const postObj = post.toObject();
+  if (postObj.translations) {
+    postObj.translations = Object.fromEntries(postObj.translations);
+  }
+
+  res.status(200).json(postObj);
 };
 
 export const getPostById = async (req, res) => {
@@ -85,7 +102,14 @@ export const getPostById = async (req, res) => {
   if (!post) {
     return res.status(404).json("Post not found");
   }
-  res.status(200).json(post);
+
+  // Convert translations Map to plain object
+  const postObj = post.toObject();
+  if (postObj.translations) {
+    postObj.translations = Object.fromEntries(postObj.translations);
+  }
+
+  res.status(200).json(postObj);
 };
 
 export const createPost = async (req, res) => {
@@ -260,6 +284,64 @@ export const updatePost = async (req, res) => {
     runValidators: true,
   }).populate("user", "username img");
 
+  res.status(200).json(updatedPost);
+};
+
+export const updatePostTranslation = async (req, res) => {
+  const clerkUserId = req.auth.userId;
+  const postId = req.params.id;
+  const { language, title, desc, content } = req.body;
+
+  // Authentication check
+  if (!clerkUserId) {
+    return res.status(401).json("Not authenticated");
+  }
+
+  // Validation
+  const validLanguages = ["es", "zh-CN", "ar"];
+  if (!language || !validLanguages.includes(language)) {
+    return res.status(400).json("Invalid language code");
+  }
+
+  if (!title || !content) {
+    return res
+      .status(400)
+      .json("Title and content are required for translation");
+  }
+
+  // Find existing post
+  const post = await Post.findById(postId);
+  if (!post) {
+    return res.status(404).json("Post not found");
+  }
+
+  // Find user
+  const user = await User.findOne({ clerkUserId });
+  if (!user) {
+    return res.status(404).json("User not found");
+  }
+
+  // Authorization check
+  const role = req.auth.sessionClaims?.metadata?.role || "user";
+  const isAuthor = post.user.toString() === user._id.toString();
+  const isAdmin = role === "admin";
+
+  if (!isAuthor && !isAdmin) {
+    return res.status(403).json("You can only edit your own posts");
+  }
+
+  // Update translation for specific language
+  if (!post.translations) {
+    post.translations = new Map();
+  }
+
+  post.translations.set(language, { title, desc, content });
+  await post.save();
+
+  const updatedPost = await Post.findById(postId).populate(
+    "user",
+    "username img",
+  );
   res.status(200).json(updatedPost);
 };
 

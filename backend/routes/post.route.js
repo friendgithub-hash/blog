@@ -8,6 +8,7 @@ import {
   uploadAuth,
   featurePost,
   updatePost,
+  updatePostTranslation,
 } from "../controllers/post.controller.js";
 import increaseVisit from "../middlewares/increaseVisit.js";
 
@@ -20,6 +21,7 @@ router.get("/id/:id", getPostById);
 
 router.post("/", createPost);
 router.put("/:id", updatePost);
+router.put("/:id/translation", updatePostTranslation);
 router.delete("/:id", deletePost);
 router.patch("/feature", featurePost);
 

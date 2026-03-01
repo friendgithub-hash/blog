@@ -3,6 +3,7 @@ import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const fetchPosts = async (pageParam, searchParams) => {
   const searchParamsObj = Object.fromEntries([...searchParams]);
@@ -15,6 +16,7 @@ const fetchPosts = async (pageParam, searchParams) => {
 };
 
 const PostList = () => {
+  const { t } = useTranslation();
   const [searchParams, setSerchparams] = useSearchParams();
   const {
     data,
@@ -32,7 +34,7 @@ const PostList = () => {
       lastPage.hasMore ? pages.length + 1 : undefined,
   });
 
-  if (status === "loading") return "Loading...";
+  if (status === "loading") return t("pagination.loading");
   if (status === "error") return "Something went wrong: ";
 
   const allPosts = data?.pages?.flatMap((page) => page.posts) || [];
@@ -42,10 +44,10 @@ const PostList = () => {
       dataLength={allPosts.length}
       next={fetchNextPage}
       hasMore={!!hasNextPage}
-      loader={<h4>Loading more posts...</h4>}
+      loader={<h4>{t("pagination.loadingMore")}</h4>}
       endMessage={
         <p>
-          <b>All posts loaded!</b>
+          <b>{t("pagination.allLoaded")}</b>
         </p>
       }
     >

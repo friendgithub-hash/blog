@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "trending": "الرائج",
+    "mostPopular": "الأكثر شعبية",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "contact": "اتصل بنا"
+  },
+  "post": {
+    "readMore": "اقرأ المزيد",
+    "author": "بواسطة {{author}}",
+    "publishedOn": "نُشر في {{date}}",
+    "comments": "{{count}} تعليق",
+    "comments_plural": "{{count}} تعليقات",
+    "share": "مشاركة",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "writtenBy": "كتبه",
+    "on": "في",
+    "newPost": "منشور جديد",
+    "editPost": "تعديل المنشور",
+    "authorTitle": "الكاتب"
+  },
+  "search": {
+    "placeholder": "البحث عن المنشورات...",
+    "noResults": "لم يتم العثور على منشورات",
+    "resultsCount": "تم العثور على {{count}} نتيجة",
+    "resultsCount_plural": "تم العثور على {{count}} نتائج",
+    "title": "بحث"
+  },
+  "filter": {
+    "title": "تصفية",
+    "newest": "الأحدث",
+    "oldest": "الأقدم",
+    "popular": "الأكثر شعبية",
+    "trending": "الرائج"
+  },
+  "categories": {
+    "title": "الفئات",
+    "all": "الكل",
+    "application": "التطبيق",
+    "service": "الخدمة",
+    "products": "المنتجات",
+    "distributors": "الموزعون",
+    "news": "الأخبار"
+  },
+  "postList": {
+    "allPosts": "جميع المنشورات",
+    "categoryPosts": "منشورات {{category}}",
+    "searchResults": "نتائج البحث عن \"{{query}}\"",
+    "latestPosts": "أحدث المنشورات",
+    "oldestPosts": "أقدم المنشورات",
+    "popularPosts": "المنشورات الشائعة",
+    "browseAll": "تصفح جميع المقالات على nextblog",
+    "browseCategory": "تصفح مقالات {{category}} على nextblog",
+    "searchDescription": "نتائج البحث عن \"{{query}}\" على nextblog",
+    "filterOrSearch": "تصفية أو بحث",
+    "close": "إغلاق",
+    "pageTitle": "أنظمة سلبية إيجابية"
+  },
+  "pagination": {
+    "loading": "جاري التحميل...",
+    "loadingMore": "جاري تحميل المزيد من المنشورات...",
+    "allLoaded": "تم تحميل جميع المنشورات!"
+  },
+  "form": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "submit": "إرسال",
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صالح",
+    "namePlaceholder": "اسمك الكامل",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "ما هو موضوع رسالتك؟",
+    "messagePlaceholder": "رسالتك (10-1000 حرف)",
+    "nameRequired": "الاسم مطلوب",
+    "nameMinLength": "يجب أن يكون الاسم على الأقل حرفين",
+    "emailRequired": "البريد الإلكتروني مطلوب",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صالح",
+    "subjectRequired": "الموضوع مطلوب",
+    "subjectMinLength": "يجب أن يكون الموضوع على الأقل 3 أحرف",
+    "messageRequired": "الرسالة مطلوبة",
+    "messageMinLength": "يجب أن تكون الرسالة على الأقل 10 أحرف",
+    "messageMaxLength": "يجب ألا تتجاوز الرسالة 1000 حرف",
+    "charactersCount": "{{count}}/1000 حرف",
+    "sending": "جاري الإرسال...",
+    "sendMessage": "إرسال الرسالة",
+    "successMessage": "شكراً لتواصلك معنا! سنعود إليك قريباً.",
+    "errorMessage": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى لاحقاً.",
+    "correctErrors": "يرجى تصحيح الأخطاء أدناه",
+    "contactUs": "اتصل بنا"
+  },
+  "footer": {
+    "copyright": "© {{year}} NextBlog. جميع الحقوق محفوظة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة"
+  },
+  "homepage": {
+    "title": "أنظمة متقدمة لتوريد الحبر بالضغط السلبي",
+    "subtitle": "تعتبر أنظمة الضغط السلبي مكونات حاسمة في الطباعة بالأشعة فوق البنفسجية، مصممة لتثبيت توصيل الحبر من خلال إنشاء فراغ يوازن قوى الجاذبية. تضمن هذه التقنية استقرار سطح الحبر عند الفوهة، مما يمنع التنقيط ويتيح إنتاجاً مستمراً عالي السرعة في مختلف الاتجاهات.",
+    "recentPosts": "المنشورات الأخيرة"
+  },
+  "seo": {
+    "homepage": {
+      "title": "أنظمة متقدمة لتوريد الحبر بالضغط السلبي",
+      "description": "تعتبر أنظمة الضغط السلبي مكونات حاسمة في الطباعة بالأشعة فوق البنفسجية، مصممة لتثبيت توصيل الحبر من خلال إنشاء فراغ يوازن قوى الجاذبية. تضمن هذه التقنية استقرار سطح الحبر عند الفوهة، مما يمنع التنقيط ويتيح إنتاجاً مستمراً عالي السرعة في مختلف الاتجاهات."
+    },
+    "posts": {
+      "title": "جميع المنشورات",
+      "description": "تصفح جميع منشورات المدونة"
+    },
+    "contact": {
+      "title": "اتصل بنا",
+      "description": "تواصل معنا"
+    }
+  },
+  "time": {
+    "justNow": "الآن",
+    "minutesAgo": "منذ {{count}} دقيقة",
+    "minutesAgo_plural": "منذ {{count}} دقائق",
+    "hoursAgo": "منذ {{count}} ساعة",
+    "hoursAgo_plural": "منذ {{count}} ساعات",
+    "daysAgo": "منذ {{count}} يوم",
+    "daysAgo_plural": "منذ {{count}} أيام"
+  },
+  "errors": {
+    "loadFailed": "فشل تحميل المحتوى",
+    "networkError": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "notFound": "الصفحة غير موجودة"
+  },
+  "write": {
+    "createPost": "إنشاء منشور جديد",
+    "editPost": "تعديل المنشور",
+    "addCoverImage": "إضافة صورة غلاف",
+    "titlePlaceholder": "العنوان",
+    "chooseCategory": "اختر فئة",
+    "descriptionPlaceholder": "وصف قصير",
+    "publish": "نشر",
+    "update": "تحديث",
+    "loading": "جاري التحميل...",
+    "loadingState": "جاري التحميل...",
+    "pleaseSignIn": "يرجى تسجيل الدخول",
+    "loadingPostData": "جاري تحميل بيانات المنشور...",
+    "failedToLoadPost": "فشل تحميل بيانات المنشور",
+    "progress": "التقدم: {{progress}}% تم التحميل",
+    "createPostSuccess": "تم إنشاء المنشور بنجاح!",
+    "updatePostSuccess": "تم تحديث المنشور بنجاح!",
+    "createPostError": "تعذر إنشاء المنشور: {{message}}",
+    "updatePostError": "فشل تحديث المنشور: {{message}}",
+    "translations": "الترجمات",
+    "originalContent": "الأصلي (الإنجليزية)",
+    "addTranslation": "إضافة ترجمة",
+    "saveTranslation": "حفظ الترجمة",
+    "translationSaved": "تم حفظ الترجمة بنجاح!",
+    "translationError": "فشل حفظ الترجمة: {{message}}",
+    "translationTitle": "العنوان ({{language}})",
+    "translationDesc": "الوصف ({{language}})",
+    "translationContent": "المحتوى ({{language}})",
+    "coverImageNote": "سيتم استخدام صورة الغلاف من المنشور الأصلي",
+    "currentCoverImage": "صورة الغلاف الحالية"
+  },
+  "seoWrite": {
+    "createTitle": "إنشاء منشور",
+    "createDescription": "إنشاء منشور مدونة جديد",
+    "editTitle": "تعديل المنشور",
+    "editDescription": "تعديل منشور المدونة الخاص بك"
+  }
+}

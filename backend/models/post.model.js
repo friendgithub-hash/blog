@@ -11,6 +11,15 @@ const postSchema = new Schema(
     content: { type: String, required: true },
     isFeatured: { type: Boolean, default: false },
     visits: { type: Number, default: 0 },
+    translations: {
+      type: Map,
+      of: {
+        title: { type: String },
+        desc: { type: String },
+        content: { type: String },
+      },
+      default: {},
+    },
   },
   { timestamps: true },
 );

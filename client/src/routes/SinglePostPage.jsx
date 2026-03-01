@@ -8,6 +8,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
 import { useUser } from "@clerk/clerk-react";
+import { useTranslation } from "react-i18next";
 
 const fetchPost = async (slug) => {
   // FIXED: Changed VITE_BASE_URL to VITE_API_URL to match the env variable
@@ -18,12 +19,20 @@ const fetchPost = async (slug) => {
 const SinglePostPage = () => {
   const { slug } = useParams();
   const { user } = useUser();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
 
   const { isPending, error, data } = useQuery({
     queryKey: ["post", slug],
     queryFn: () => fetchPost(slug),
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
+
+  // Get translated content or fallback to original
+  const displayTitle = data?.translations?.[currentLang]?.title || data?.title;
+  const displayDesc = data?.translations?.[currentLang]?.desc || data?.desc;
+  const displayContent =
+    data?.translations?.[currentLang]?.content || data?.content;
 
   // Strip HTML tags from content for fallback description
   const stripHtml = (html) => {
@@ -53,7 +62,7 @@ const SinglePostPage = () => {
   return (
     <>
       <SEO
-        title={data.title}
+        title={displayTitle}
         description={fallbackDescription}
         image={data.img}
         url={`/posts/${data.slug}`}
@@ -69,31 +78,31 @@ const SinglePostPage = () => {
         <div className="flex gap-8">
           <div className="lg:w-3/5 flex flex-col gap-8">
             <h1 className="text-xl md:text-3xl xl:text-4xl 2xl:text-5xl font-semibold">
-              {data.title}
+              {displayTitle}
             </h1>
             <div className="flex items-center gap-2 text-gray-400 text-sm">
-              <span>Written by</span>
+              <span>{t("post.writtenBy")}</span>
               <Link className="text-blue-800">
                 {data.user?.username || "Unknown"}
               </Link>
-              <span>on</span>
+              <span>{t("post.on")}</span>
               <Link className="text-blue-800">{data.category}</Link>
               <span>{format(data.createdAt)}</span>
             </div>
-            <p className="text-gray-500 font-medium">{data.desc}</p>
+            <p className="text-gray-500 font-medium">{displayDesc}</p>
             <div className="flex gap-2">
               <Link
                 to="/write"
                 className="bg-green-600 text-white px-4 py-2 rounded-xl text-sm"
               >
-                New Post
+                {t("post.newPost")}
               </Link>
               {canEdit && (
                 <Link
                   to={`/write?edit=${data._id}`}
                   className="bg-blue-800 text-white px-4 py-2 rounded-xl text-sm"
                 >
-                  Edit Post
+                  {t("post.editPost")}
                 </Link>
               )}
             </div>
@@ -109,12 +118,14 @@ const SinglePostPage = () => {
           {/* Text - FIXED: Use data.content instead of dummy Lorem ipsum */}
           <div
             className="lg:text-lg flex flex-col gap-6 overflow-hidden break-words max-w-full md:flex-1"
-            dangerouslySetInnerHTML={{ __html: data.content }}
+            dangerouslySetInnerHTML={{ __html: displayContent }}
           />
 
           {/* Menu */}
           <div className="px-4 h-max sticky top-8 md:w-80 flex-shrink-0">
-            <h1 className="mb-4 text-sm font-medium">Author</h1>
+            <h1 className="mb-4 text-sm font-medium">
+              {t("post.authorTitle")}
+            </h1>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-8">
                 {data.user?.img && (
@@ -142,28 +153,32 @@ const SinglePostPage = () => {
             </div>
 
             <PostMenuActions post={data} />
-            <h1 className="mt-8 mb-4 text-sm font-medium">Categories</h1>
+            <h1 className="mt-8 mb-4 text-sm font-medium">
+              {t("categories.title")}
+            </h1>
             <div className="flex flex-col gap-2 text-sm">
               <Link className="underline" to="/?cat=application">
-                All
+                {t("categories.all")}
               </Link>
               <Link className="underline" to="/?cat=application">
-                Application
+                {t("categories.application")}
               </Link>
               <Link className="underline" to="/?cat=service">
-                Service
+                {t("categories.service")}
               </Link>
               <Link className="underline" to="/?cat=products">
-                Products
+                {t("categories.products")}
               </Link>
               <Link className="underline" to="/?cat=distributors">
-                Distributors
+                {t("categories.distributors")}
               </Link>
               <Link className="underline" to="/?cat=news">
-                News
+                {t("categories.news")}
               </Link>
             </div>
-            <h1 className="mt-8 mb-4 text-sm font-medium">Search</h1>
+            <h1 className="mt-8 mb-4 text-sm font-medium">
+              {t("search.title")}
+            </h1>
             <Search />
           </div>
         </div>

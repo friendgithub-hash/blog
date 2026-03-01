@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "home": "首页",
+    "trending": "热门",
+    "mostPopular": "最受欢迎",
+    "contact": "联系我们",
+    "login": "登录"
+  },
+  "breadcrumb": {
+    "home": "首页",
+    "contact": "联系我们"
+  },
+  "post": {
+    "readMore": "阅读更多",
+    "author": "作者：{{author}}",
+    "publishedOn": "发布于 {{date}}",
+    "comments": "{{count}} 条评论",
+    "comments_plural": "{{count}} 条评论",
+    "share": "分享",
+    "edit": "编辑",
+    "delete": "删除",
+    "writtenBy": "作者",
+    "on": "于",
+    "newPost": "新文章",
+    "editPost": "编辑文章",
+    "authorTitle": "作者"
+  },
+  "search": {
+    "placeholder": "搜索文章...",
+    "noResults": "未找到文章",
+    "resultsCount": "找到 {{count}} 个结果",
+    "resultsCount_plural": "找到 {{count}} 个结果",
+    "title": "搜索"
+  },
+  "filter": {
+    "title": "筛选",
+    "newest": "最新",
+    "oldest": "最旧",
+    "popular": "最受欢迎",
+    "trending": "热门"
+  },
+  "categories": {
+    "title": "分类",
+    "all": "全部",
+    "application": "应用",
+    "service": "服务",
+    "products": "产品",
+    "distributors": "经销商",
+    "news": "新闻"
+  },
+  "postList": {
+    "allPosts": "所有文章",
+    "categoryPosts": "{{category}} 文章",
+    "searchResults": "\"{{query}}\" 的搜索结果",
+    "latestPosts": "最新文章",
+    "oldestPosts": "最旧文章",
+    "popularPosts": "热门文章",
+    "browseAll": "浏览 nextblog 上的所有文章",
+    "browseCategory": "浏览 nextblog 上的 {{category}} 文章",
+    "searchDescription": "nextblog 上 \"{{query}}\" 的搜索结果",
+    "filterOrSearch": "筛选或搜索",
+    "close": "关闭",
+    "pageTitle": "负正系统"
+  },
+  "pagination": {
+    "loading": "加载中...",
+    "loadingMore": "加载更多文章...",
+    "allLoaded": "所有文章已加载！"
+  },
+  "form": {
+    "name": "姓名",
+    "email": "电子邮件",
+    "subject": "主题",
+    "message": "消息",
+    "submit": "提交",
+    "required": "此字段为必填项",
+    "invalidEmail": "请输入有效的电子邮件地址",
+    "namePlaceholder": "您的全名",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "这是关于什么的？",
+    "messagePlaceholder": "您的消息（10-1000个字符）",
+    "nameRequired": "姓名为必填项",
+    "nameMinLength": "姓名至少需要2个字符",
+    "emailRequired": "电子邮件为必填项",
+    "emailInvalid": "请输入有效的电子邮件地址",
+    "subjectRequired": "主题为必填项",
+    "subjectMinLength": "主题至少需要3个字符",
+    "messageRequired": "消息为必填项",
+    "messageMinLength": "消息至少需要10个字符",
+    "messageMaxLength": "消息不得超过1000个字符",
+    "charactersCount": "{{count}}/1000 字符",
+    "sending": "发送中...",
+    "sendMessage": "发送消息",
+    "successMessage": "感谢您联系我们！我们会尽快回复您。",
+    "errorMessage": "发送消息失败。请稍后重试。",
+    "correctErrors": "请更正以下错误",
+    "contactUs": "联系我们"
+  },
+  "footer": {
+    "copyright": "© {{year}} NextBlog. 保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "homepage": {
+    "title": "先进的负压供墨系统",
+    "subtitle": "负压系统是UV印刷中的关键组件，通过创建平衡重力的真空来稳定墨水输送。该技术确保喷嘴处墨水弯月面的稳定，防止滴漏，并能够在各种方向上实现高速连续生产。",
+    "recentPosts": "最新文章"
+  },
+  "seo": {
+    "homepage": {
+      "title": "先进的负压供墨系统",
+      "description": "负压系统是UV印刷中的关键组件，通过创建平衡重力的真空来稳定墨水输送。该技术确保喷嘴处墨水弯月面的稳定，防止滴漏，并能够在各种方向上实现高速连续生产。"
+    },
+    "posts": {
+      "title": "所有文章",
+      "description": "浏览所有博客文章"
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "与我们取得联系"
+    }
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minutesAgo": "{{count}} 分钟前",
+    "minutesAgo_plural": "{{count}} 分钟前",
+    "hoursAgo": "{{count}} 小时前",
+    "hoursAgo_plural": "{{count}} 小时前",
+    "daysAgo": "{{count}} 天前",
+    "daysAgo_plural": "{{count}} 天前"
+  },
+  "errors": {
+    "loadFailed": "加载内容失败",
+    "networkError": "网络错误。请重试。",
+    "notFound": "页面未找到"
+  },
+  "write": {
+    "createPost": "创建新文章",
+    "editPost": "编辑文章",
+    "addCoverImage": "添加封面图片",
+    "titlePlaceholder": "标题",
+    "chooseCategory": "选择分类",
+    "descriptionPlaceholder": "简短描述",
+    "publish": "发布",
+    "update": "更新",
+    "loading": "加载中...",
+    "loadingState": "加载中...",
+    "pleaseSignIn": "请登录",
+    "loadingPostData": "加载文章数据...",
+    "failedToLoadPost": "加载文章数据失败",
+    "progress": "进度：{{progress}}% 已上传",
+    "createPostSuccess": "文章创建成功！",
+    "updatePostSuccess": "文章更新成功！",
+    "createPostError": "无法创建文章：{{message}}",
+    "updatePostError": "更新文章失败：{{message}}",
+    "translations": "翻译",
+    "originalContent": "原文（英文）",
+    "addTranslation": "添加翻译",
+    "saveTranslation": "保存翻译",
+    "translationSaved": "翻译保存成功！",
+    "translationError": "保存翻译失败：{{message}}",
+    "translationTitle": "标题（{{language}}）",
+    "translationDesc": "描述（{{language}}）",
+    "translationContent": "内容（{{language}}）",
+    "coverImageNote": "将使用原文章的封面图片",
+    "currentCoverImage": "当前封面图片"
+  },
+  "seoWrite": {
+    "createTitle": "创建文章",
+    "createDescription": "创建新的博客文章",
+    "editTitle": "编辑文章",
+    "editDescription": "编辑您的博客文章"
+  }
+}

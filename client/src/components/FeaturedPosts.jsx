@@ -3,6 +3,7 @@ import Image from "./Image";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
+import { useTranslation } from "react-i18next";
 
 const fetchPost = async () => {
   const res = await axios.get(
@@ -12,6 +13,9 @@ const fetchPost = async () => {
 };
 
 const FeaturedPosts = () => {
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
+
   const { isPending, error, data } = useQuery({
     queryKey: ["featuredPosts"],
     queryFn: () => fetchPost(),
@@ -24,6 +28,11 @@ const FeaturedPosts = () => {
   if (!posts || posts.length === 0) {
     return;
   }
+
+  // Helper function to get translated title
+  const getTitle = (post) => {
+    return post.translations?.[currentLang]?.title || post.title;
+  };
 
   return (
     <div className="mt-8 flex flex-col lg:flex-row gap-8">
@@ -48,7 +57,7 @@ const FeaturedPosts = () => {
           to={`/post/${posts[0].slug}`}
           className="text-xl lg:text-3xl font-semibold lg:font-bold"
         >
-          {posts[0].title}
+          {getTitle(posts[0])}
         </Link>
       </div>
       {/* Others */}
@@ -80,7 +89,7 @@ const FeaturedPosts = () => {
                 to={`/post/${posts[1].slug}`}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[1].title}
+                {getTitle(posts[1])}
               </Link>
             </div>
           </div>
@@ -101,7 +110,7 @@ const FeaturedPosts = () => {
             <div className="w-2/3">
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
-                <h1 className="font-semibold">02.</h1>
+                <h1 className="font-semibold">03.</h1>
                 <Link className="text-blue-800">{posts[2].category}</Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[2].createdAt)}
@@ -113,7 +122,7 @@ const FeaturedPosts = () => {
                 to={`/post/${posts[2].slug}`}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[2].title}
+                {getTitle(posts[2])}
               </Link>
             </div>
           </div>
@@ -134,7 +143,7 @@ const FeaturedPosts = () => {
             <div className="w-2/3">
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
-                <h1 className="font-semibold">02.</h1>
+                <h1 className="font-semibold">04.</h1>
                 <Link className="text-blue-800">{posts[3].category}</Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[3].createdAt)}
@@ -145,7 +154,7 @@ const FeaturedPosts = () => {
                 to={`/post/${posts[3].slug}`}
                 className="text-base sm:text-lg md:text-2xl lg:text-xl xl:text-2xl font-medium"
               >
-                {posts[3].title}
+                {getTitle(posts[3])}
               </Link>
             </div>
           </div>
