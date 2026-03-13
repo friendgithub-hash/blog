@@ -3,6 +3,7 @@ import Comment from "./comment";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const fetchComments = async (postId) => {
   // FIXED: Changed VITE_BASE_URL to VITE_API_URL to match the mutation and env variable
@@ -15,6 +16,7 @@ const fetchComments = async (postId) => {
 const Comments = ({ postId }) => {
   const { user } = useUser();
   const { getToken } = useAuth();
+  const { t } = useTranslation();
 
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
@@ -56,30 +58,30 @@ const Comments = ({ postId }) => {
 
   return (
     <div className="flex flex-col gap-8 lg:w-3/5 mb-12">
-      <h1 className="text-xl text-gray-500 underline"></h1>
+      <h1 className="text-xl text-gray-500 underline">{t("comments.title")}</h1>
       <form
         onSubmit={handleSubmit}
         className="flex items-center justify-between gap-8 w-full"
       >
         <textarea
           name="desc"
-          placeholder="Write a comment..."
+          placeholder={t("comments.placeholder")}
           className="w-full p-4 rounded-xl"
         />
         <button className="bg-blue-800 px-4 py-3 text-white font-medium rounded-xl">
-          Send
+          {t("comments.send")}
         </button>
       </form>
       {isPending ? (
-        "Loading..."
+        t("comments.loading")
       ) : error ? (
-        "Error loading comments!"
+        t("comments.error")
       ) : (
         <>
           {mutation.isPending && (
             <Comment
               comment={{
-                desc: `${mutation.variables.desc} (Sending...)`,
+                desc: `${mutation.variables.desc} (${t("comments.sending")})`,
                 createdAt: new Date(),
                 user: {
                   img: user.imageUrl,

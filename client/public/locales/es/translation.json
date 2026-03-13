@@ -23,7 +23,14 @@
     "on": "el",
     "newPost": "Nueva Publicación",
     "editPost": "Editar Publicación",
-    "authorTitle": "Autor"
+    "authorTitle": "Autor",
+    "actions": "Acciones",
+    "saveThisPost": "Guardar esta Publicación",
+    "deleteThisPost": "Eliminar esta Publicación",
+    "feature": "Destacar",
+    "inProgress": "en progreso",
+    "loading": "Cargando...",
+    "savedPostFetchFailed": "Error al cargar publicaciones guardadas"
   },
   "search": {
     "placeholder": "Buscar publicaciones...",
@@ -133,6 +140,14 @@
     "loadFailed": "Error al cargar el contenido",
     "networkError": "Error de red. Por favor, inténtelo de nuevo.",
     "notFound": "Página no encontrada"
+  },
+  "comments": {
+    "title": "Comentarios",
+    "placeholder": "Escribe un comentario...",
+    "send": "Enviar",
+    "loading": "Cargando...",
+    "error": "¡Error al cargar los comentarios!",
+    "sending": "Enviando..."
   },
   "write": {
     "createPost": "Crear una nueva publicación",

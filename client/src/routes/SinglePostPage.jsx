@@ -141,7 +141,7 @@ const SinglePostPage = () => {
                   {data.user?.username || "Unknown User"}
                 </Link>
               </div>
-              <p className="text-sm text-gray-500">{data.title}</p>
+              <p className="text-sm text-gray-500">{displayTitle}</p>
               <div className="flex gap-2">
                 <Link>
                   <Image src="facebook.svg" />

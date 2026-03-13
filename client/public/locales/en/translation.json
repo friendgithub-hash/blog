@@ -23,7 +23,14 @@
     "on": "on",
     "newPost": "New Post",
     "editPost": "Edit Post",
-    "authorTitle": "Author"
+    "authorTitle": "Author",
+    "actions": "Actions",
+    "saveThisPost": "Save this Post",
+    "deleteThisPost": "Delete this Post",
+    "feature": "Feature",
+    "inProgress": "in progress",
+    "loading": "Loading...",
+    "savedPostFetchFailed": "Saved post fetching failed"
   },
   "search": {
     "placeholder": "Search posts...",
@@ -133,6 +140,14 @@
     "loadFailed": "Failed to load content",
     "networkError": "Network error. Please try again.",
     "notFound": "Page not found"
+  },
+  "comments": {
+    "title": "Comments",
+    "placeholder": "Write a comment...",
+    "send": "Send",
+    "loading": "Loading...",
+    "error": "Error loading comments!",
+    "sending": "Sending..."
   },
   "write": {
     "createPost": "Create a new post",

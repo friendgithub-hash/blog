@@ -23,7 +23,14 @@
     "on": "في",
     "newPost": "منشور جديد",
     "editPost": "تعديل المنشور",
-    "authorTitle": "الكاتب"
+    "authorTitle": "الكاتب",
+    "actions": "الإجراءات",
+    "saveThisPost": "حفظ هذا المنشور",
+    "deleteThisPost": "حذف هذا المنشور",
+    "feature": "تمييز",
+    "inProgress": "قيد التنفيذ",
+    "loading": "جاري التحميل...",
+    "savedPostFetchFailed": "فشل تحميل المنشورات المحفوظة"
   },
   "search": {
     "placeholder": "البحث عن المنشورات...",
@@ -133,6 +140,14 @@
     "loadFailed": "فشل تحميل المحتوى",
     "networkError": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
     "notFound": "الصفحة غير موجودة"
+  },
+  "comments": {
+    "title": "التعليقات",
+    "placeholder": "اكتب تعليقاً...",
+    "send": "إرسال",
+    "loading": "جاري التحميل...",
+    "error": "خطأ في تحميل التعليقات!",
+    "sending": "جاري الإرسال..."
   },
   "write": {
     "createPost": "إنشاء منشور جديد",

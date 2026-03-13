@@ -23,7 +23,14 @@
     "on": "于",
     "newPost": "新文章",
     "editPost": "编辑文章",
-    "authorTitle": "作者"
+    "authorTitle": "作者",
+    "actions": "操作",
+    "saveThisPost": "保存此文章",
+    "deleteThisPost": "删除此文章",
+    "feature": "推荐",
+    "inProgress": "进行中",
+    "loading": "加载中...",
+    "savedPostFetchFailed": "加载已保存文章失败"
   },
   "search": {
     "placeholder": "搜索文章...",
@@ -133,6 +140,14 @@
     "loadFailed": "加载内容失败",
     "networkError": "网络错误。请重试。",
     "notFound": "页面未找到"
+  },
+  "comments": {
+    "title": "评论",
+    "placeholder": "写评论...",
+    "send": "发送",
+    "loading": "加载中...",
+    "error": "加载评论出错！",
+    "sending": "发送中..."
   },
   "write": {
     "createPost": "创建新文章",

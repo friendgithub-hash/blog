@@ -13,7 +13,7 @@ const fetchPost = async () => {
 };
 
 const FeaturedPosts = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLang = i18n.language;
 
   const { isPending, error, data } = useQuery({
@@ -34,6 +34,11 @@ const FeaturedPosts = () => {
     return post.translations?.[currentLang]?.title || post.title;
   };
 
+  // Helper function to get translated category
+  const getCategory = (category) => {
+    return t(`categories.${category}`);
+  };
+
   return (
     <div className="mt-8 flex flex-col lg:flex-row gap-8">
       {/* First */}
@@ -49,7 +54,9 @@ const FeaturedPosts = () => {
         {/* details */}
         <div className="flex items-center gap-4">
           <h1 className="font-semibold lg:text-lg">01.</h1>
-          <Link className="text-blue-800 lg:text-lg">{posts[0].category}</Link>
+          <Link className="text-blue-800 lg:text-lg">
+            {getCategory(posts[0].category)}
+          </Link>
           <span className="text-gray-500">{format(posts[0].createdAt)}</span>
         </div>
         {/* title */}
@@ -79,7 +86,9 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">02.</h1>
-                <Link className="text-blue-800">{posts[1].category}</Link>
+                <Link className="text-blue-800">
+                  {getCategory(posts[1].category)}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[1].createdAt)}
                 </span>
@@ -111,7 +120,9 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">03.</h1>
-                <Link className="text-blue-800">{posts[2].category}</Link>
+                <Link className="text-blue-800">
+                  {getCategory(posts[2].category)}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[2].createdAt)}
                 </span>
@@ -144,7 +155,9 @@ const FeaturedPosts = () => {
               {/* details */}
               <div className="flex items-center gap-4 text-sm lg:text-base mb-4">
                 <h1 className="font-semibold">04.</h1>
-                <Link className="text-blue-800">{posts[3].category}</Link>
+                <Link className="text-blue-800">
+                  {getCategory(posts[3].category)}
+                </Link>
                 <span className="text-gray-500 text-sm">
                   {format(posts[3].createdAt)}
                 </span>
